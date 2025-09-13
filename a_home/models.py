@@ -1,6 +1,3 @@
-from django.conf import settings
+from django.db import models
 
-def project_title(request):
-    return {
-        'PROJECT_TITLE': settings.PROJECT_TITLE
-    }
+# Create your models here.

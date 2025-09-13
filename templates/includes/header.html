@@ -3,7 +3,7 @@
     <div>
         <a class="flex items-center gap-2" href="/">
             <img class="h-6" src="{% static 'images/logo.svg' %}" alt="Logo"/>
-            <span class="text-lg font-bold">{{ PROJECT_TITLE }}</span>
+            <span class="text-lg font-bold">Drift</span>
         </a>
     </div>
     <nav class="block relative">
@@ -31,8 +31,8 @@
             </li>
             
             {% else %}
-            <li><a href="{% comment %}{% url 'account_login' %}{% endcomment %}#">Login</a></li>
-            <li><a href="{% comment %}{% url 'account_signup' %}?next={% url 'profile-onboarding' %}{% endcomment %}#">Signup</a></li>
+            <li><a href="{% url 'account_login' %}">Login</a></li>
+            <li><a href="{% url 'account_signup' %}">Signup</a></li>
             {% endif %}
         </ul>
     </nav>
