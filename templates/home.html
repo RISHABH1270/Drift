@@ -1,0 +1,13 @@
+{# HOME PAGE TEMPLATE - Main landing page of the website #}
+
+{# TEMPLATE INHERITANCE - Extends the blank layout template #}
+{% extends 'layouts/blank.html' %}
+
+{# CONTENT BLOCK - Overrides the content block from parent template #}
+
+{% block content %} 
+    <div class="max-w-4xl mx-auto px-8 py-24">
+        {# WELCOME MESSAGE - Dynamic content from view context #}
+        <h1>{{ welcome_message }}</h1>
+    </div>
+{% endblock %}

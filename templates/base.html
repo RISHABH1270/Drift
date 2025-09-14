@@ -1,0 +1,154 @@
+{# DJANGO BASE TEMPLATE - The Foundation Template for All Pages #}
+
+{# LOAD DJANGO TEMPLATE TAGS - Import helper functions #}
+{% load static %}       {# Enables {% static %} tag for CSS/JS/images #}
+{% load django_htmx %}  {# Enables HTMX features in Django templates #}
+
+{# HTML5 DOCUMENT TYPE - Modern web standard #}
+<!DOCTYPE html>
+<html lang="en">  {# Set language to English for screen readers #}
+<head>
+    {# CHARACTER ENCODING - Supports all languages and emoji #}
+    <meta charset="UTF-8">
+    
+    {# INTERNET EXPLORER COMPATIBILITY - Forces IE to use latest rendering #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    {# RESPONSIVE DESIGN - Makes site work on phones/tablets #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {# SEO META TAGS - Help search engines understand the page #}
+    <meta name="description" content="Django Template">
+    
+    {# PAGE TITLE - Shows in browser tab and search results #}
+    <title>Project Title</title>
+    {# FAVICON - Small icon shown in browser tab #}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    
+    {# JAVASCRIPT LIBRARIES - External tools for interactivity #}
+    
+    {# ALPINE.JS - Lightweight JavaScript framework for interactive components #}
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    {# HTMX - Updates parts of page without full reload (AJAX made easy) #}
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+    {% django_htmx_script %}  {# Django-HTMX integration script #}
+    
+    {# HYPERSCRIPT - Natural language for web interactions #}
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    
+    {# TAILWIND CSS - Utility-first CSS framework for rapid styling #}
+    <script src="https://cdn.tailwindcss.com"></script>
+    {# CUSTOM CSS STYLES - Project-specific styling using Tailwind CSS #}
+    <style type="text/tailwindcss">
+        [x-cloak] { 
+            display: none !important; 
+        }
+        h1 {
+            @apply text-4xl font-bold mb-4  /* Large page titles */
+        }
+        h2 {
+            @apply text-xl font-bold mb-2   /* Section headings */
+        }
+    	h3 {
+            @apply text-lg font-bold        /* Sub-section headings */
+        }
+        p {
+            @apply mb-4                     /* Bottom margin for paragraphs */
+        }
+        .button, button, [type='submit'], [type='button'] {
+            @apply bg-indigo-600 text-white font-bold rounded-lg shadow-lg transition-all cursor-pointer
+        }
+        .button, button a, [type='submit'], [type='button'] {
+            @apply px-6 py-4 inline-block    /* Padding and display properties */
+        }
+        .button:hover, button:hover, [type='submit']:hover, [type='button']:hover {
+            @apply bg-indigo-700             /* Darker color on hover */
+        }
+        .button:active, button:active, [type='submit']:active, [type='button']:active {
+            @apply scale-95                  /* Shrink slightly when clicked */
+        }
+        .button.alert, button.alert {
+            @apply bg-red-700                /* Alert/danger buttons */
+        }
+        .button.alert:hover, button.alert:hover {
+            @apply bg-red-600                /* Alert button hover state */
+        }
+        .button-red {
+            @apply !bg-red-500 hover:!bg-red-600  /* Red button variant */
+        }
+        .button-gray {
+            @apply !bg-gray-300 hover:!bg-[#c3c9d0]  /* Gray button variant */
+        }
+        .navitems>li>a {
+            @apply flex items-center gap-2 h-12 px-4 hover:bg-[rgba(31,41,55,0.3)] rounded-lg;
+        }
+        .hoverlist>* {
+            @apply hover:bg-gray-100 rounded-md transition duration-150;
+        }
+        .hoverlist>*>a {
+            @apply flex items-center p-2;
+        }
+        .highlight {
+            @apply !bg-indigo-100;
+        }
+        .allauth content a {
+            @apply underline underline-offset-2
+        }
+        .allauth content a:hover {
+            @apply text-indigo-500
+        }
+        .allauth form[action="/accounts/signup/"] ul {
+            @apply hidden
+        }
+        .allauth form[action="/accounts/signup/"] ul.errorlist {
+            @apply block
+        }
+        .allauth .helptext {
+            @apply block mt-4
+        }
+        label {
+            @apply hidden
+        }
+        input[type=file] {
+            @apply bg-white pl-0
+        }
+        .textarea, textarea, input {
+            @apply w-full rounded-lg py-4 px-5 bg-gray-100
+        }
+        .errorlist li {
+            @apply p-1 pl-4 border-l-red-500 border-l-4 border-solid mb-2 text-red-500
+        }
+        label[for="id_remember"] {
+            @apply inline-block w-auto mr-2
+        }
+        input[name="remember"] {
+            @apply w-auto
+        }
+        .alert-info { @apply bg-sky-500 }
+        .alert-success { @apply bg-green-500 }
+        .alert-warning { @apply bg-red-500 }
+        .alert-danger { @apply bg-red-500 }
+    </style>
+</head>
+
+{# HTML BODY - Main page content #}
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="{% block class %}{% endblock %}">
+{# HTMX SECURITY - Automatically adds CSRF token to all HTMX requests #}
+	
+    {# TEMPLATE INCLUDES - Reusable components #}
+    {% include 'includes/messages.html' %}  {# Shows success/error messages #}
+
+    {% include 'includes/header.html' %}    {# Site navigation header #}
+
+    {# TEMPLATE BLOCKS - Content areas that child templates can override #}
+    {% block layout %}
+        {# Main content area - child templates put their content here #}
+    {% endblock %}
+
+    {% block javascript %}
+        {# Custom JavaScript - child templates can add page-specific scripts #}
+    {% endblock %}
+
+</body>
+</html>
