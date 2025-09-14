@@ -11,14 +11,19 @@ Django WebSocket chat platform for real-time messaging.
 - Git repository initialized on `development` branch
 - README documentation updated
 
-## Structure
+## Django Project Structure:
 ```
-Drift/
-├── a_core/          # Django core project
-├── manage.py        # Django commands
-├── requirements.txt # Dependencies
-├── venv/           # Virtual environment
-└── .git/           # Version control
+Drift/                            # 🏠 Your main project folder
+  ├── manage.py                   # 🔧 Django's command-line tool
+  ├── requirements.txt            # 📋 List of Python packages needed
+  ├── db.sqlite3                  # 💾 Your database file (like a filing cabinet)
+  ├── a_core/                     # ⚙️  Main project configuration (the brain)
+  ├── a_home/                     # 🏡 Home page app
+  ├── a_users/                    # 👤 User management app
+  ├── templates/                  # 🎨 HTML templates (the face of your website)
+  ├── static/                     # 📁 CSS, JS, images (styling and assets)
+  ├── media/                      # 📸 User uploaded files (profile pics, etc.)
+  └── venv/                       # 🛡️  Virtual environment (isolated Python world)
 ```
 
 ## Quick Start

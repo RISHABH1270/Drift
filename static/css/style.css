@@ -1,0 +1,58 @@
+/*
+DJANGO STATIC CSS - Custom Stylesheet for Project-Specific Styles
+
+This file is currently empty because the project uses Tailwind CSS for styling.
+All styles are defined in templates/base.html within <style> tags.
+
+DJANGO STATIC FILES EXPLAINED:
+
+1. STATIC FILES LOCATION:
+   - CSS files go in: static/css/
+   - JavaScript files go in: static/js/
+   - Images go in: static/images/
+   - Other assets go in: static/ (fonts, documents, etc.)
+
+2. HOW TO USE STATIC FILES IN TEMPLATES:
+   - Load the static tag: {% load static %}
+   - Link CSS: <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   - Add images: <img src="{% static 'images/logo.svg' %}" alt="Logo">
+   - Include JavaScript: <script src="{% static 'js/app.js' %}"></script>
+
+3. DJANGO STATIC FILE SETTINGS:
+   - STATIC_URL = '/static/' (URL prefix for static files)
+   - STATICFILES_DIRS = [BASE_DIR / 'static'] (where Django finds static files)
+   - STATIC_ROOT = BASE_DIR / 'staticfiles' (where files go for production)
+
+4. DEVELOPMENT vs PRODUCTION:
+   - Development: Django serves static files automatically
+   - Production: Use 'python manage.py collectstatic' to gather all files
+   - Production: Web server (nginx/apache) serves static files
+
+5. WHY THIS FILE IS EMPTY:
+   - Project uses Tailwind CSS (loaded from CDN)
+   - Custom styles are in base.html <style> section
+   - This file exists as placeholder for future custom CSS
+
+WHEN TO ADD CUSTOM CSS HERE:
+- Complex animations that need separate CSS files
+- Large amounts of custom styles (better organization)
+- Third-party CSS libraries downloaded locally
+- Print stylesheets or media queries
+*/
+
+/* ADD YOUR CUSTOM CSS STYLES HERE */
+
+/* Example custom styles:
+.custom-animation {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media print {
+    .no-print { display: none; }
+}
+*/

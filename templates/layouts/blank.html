@@ -1,12 +1,44 @@
+{# BLANK LAYOUT TEMPLATE - Simple content wrapper layout #}
+
+{# TEMPLATE INHERITANCE - Extends the main base template #}
 {% extends 'base.html' %}
 
+{# LAYOUT BLOCK - Overrides the layout block from base.html #}
 {% block layout %}
 
+{# CONTENT WRAPPER - Simple container for page content #}
 <content class="block w-full">
+    {# This creates a full-width container for the main content #}
 
+    {# CONTENT BLOCK - Child templates put their content here #}
     {% block content %} 
+        {# This block is overridden by templates that extend this layout #}
+        {# Examples: home.html, profile.html, etc. #}
     {% endblock %}
 
 </content>
 
 {% endblock %}
+
+{# LAYOUT TEMPLATE PURPOSE:
+   
+   This template serves as a middle layer between base.html and page templates:
+   
+   1. INHERITANCE CHAIN:
+      base.html -> blank.html -> home.html (or other pages)
+   
+   2. WHY USE LAYOUT TEMPLATES:
+      - Creates consistent page structure
+      - Can have multiple layouts (blank, sidebar, two-column, etc.)
+      - Easy to change layout for multiple pages at once
+   
+   3. OTHER POSSIBLE LAYOUTS:
+      - layouts/sidebar.html (with navigation sidebar)
+      - layouts/two-column.html (main content + sidebar)
+      - layouts/dashboard.html (for admin/user dashboards)
+   
+   4. CONTENT FLOW:
+      - base.html provides HTML structure, CSS, JavaScript
+      - blank.html provides simple content wrapper
+      - Child templates (home.html) provide actual page content
+#}

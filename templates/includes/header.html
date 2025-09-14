@@ -1,13 +1,21 @@
-{% load static %}
+{# SITE HEADER - Navigation bar at top of every page #}
+
+{% load static %}  {# Enables {% static %} tag for images and assets #}
+
+{# MAIN HEADER - Sticky navigation bar #}
 <header class="flex items-center justify-between bg-gray-800 h-20 px-8 text-white sticky top-0 z-40">
+    {# LOGO SECTION - Site branding and home link #}
     <div>
         <a class="flex items-center gap-2" href="/">
             <img class="h-6" src="{% static 'images/logo.svg' %}" alt="Logo"/>
             <span class="text-lg font-bold">Drift</span>
         </a>
     </div>
+    
+    {# NAVIGATION SECTION - Main menu items #}
     <nav class="block relative">
         <ul class="navitems flex items-center justify-center h-full">
+            {# CONDITIONAL NAVIGATION - Different menus for logged in vs anonymous users #}
             {% if request.user.is_authenticated %}
             <li><a href="/">Home</a></li>
             <li x-data="{ dropdownOpen: false }" class="relative">
